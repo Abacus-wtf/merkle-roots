@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const { MerkleTree } = require("merkletreejs");
 const keccak256 = require("keccak256");
 const whitelistAddresses = require("./whitelist.json");

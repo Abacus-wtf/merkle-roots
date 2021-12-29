@@ -1,5 +1,13 @@
-import web3 from "web3"; // require("web3");
-import fs = require("fs");
+/* eslint-disable @typescript-eslint/no-var-requires */
+const fs = require("fs");
+require('dotenv').config();
+
+const { getTransactionsByAccount: getTransactions } = require("./getTransactions.ts");
+
+const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
+
+// Using HTTPS
+const web3 = createAlchemyWeb3(`https://eth-mainnet.alchemyapi.io/${process.env.ALCHEMY_API_KEY}`);
 
 // ** Deployed Abacus "PricingSession" Contracts ** //
 const abacus_contracts = [
@@ -11,17 +19,31 @@ const abacus_contracts = [
 ];
 
 // ** Whitelist ** //
-const whitelist = [];
+let whitelist = [];
 
 // ** Iterate abacus contracts and generate whitelist ** //
-for (const contract in abacus_contracts) {
-  const filtered_addresses = web3.trace.filter({
-    fromBlock: "STARTING_BLOCK_NUMBER",
-    toAddress: [contract],
-  });
+for (const i in abacus_contracts) {
+  const fetched_txs = getTransactions(web3, abacus_contracts[i], 12762888, 13901588);
+  console.log("txs:", fetched_txs);
 
-  console.log("Filtered addresses:", filtered_addresses);
-  whitelist.push(filtered_addresses);
+  // ** map transactions to their "from address" ** //
+  const addresses = fetched_txs.map((tx) => tx.from);
+  whitelist = [...whitelist, ...addresses];
+
+
+  // const filtered_addresses = web3.eth.filter({
+  //   // ** July 4th, 2021 ** //
+  //   // ** https://etherscan.io/blocks?ps=100&p=11400 ** //
+  //   fromBlock: "12762888",
+  //   address: contract,
+  // });
+
+  // filtered_addresses.get(function(error, log) {
+  //   console.log(JSON.stringify(log));
+  //   whitelist.push(filtered_addresses);
+  // });
+
+  // console.log("Filtered addresses:", filtered_addresses);
 }
 
 console.log("Generated whitelist:", whitelist);

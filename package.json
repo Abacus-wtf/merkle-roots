@@ -22,11 +22,15 @@
     "push-release": "git push --follow-tags origin main"
   },
   "dependencies": {
+    "@alch/alchemy-web3": "^1.1.9",
+    "bignumber.js": "^9.0.2",
+    "dotenv": "^10.0.0",
     "keccak256": "^1.0.6",
     "merkletreejs": "^0.2.27",
     "web3": "^1.6.1"
   },
   "devDependencies": {
+    "@types/underscore": "^1.11.4",
     "@typescript-eslint/eslint-plugin": "^5.8.1",
     "@typescript-eslint/parser": "^5.8.1",
     "eslint": "^8.5.0",
