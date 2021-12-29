@@ -1,13 +1,13 @@
-# Merkle Root Whitelist • [![tests](https://github.com/abacus-wtf/merkle-roots/actions/workflows/tests.yml/badge.svg)](https://github.com/abacus-wtf/merkle-roots/actions/workflows/tests.yml) [![lints](https://github.com/abacus-wtf/merkle-roots/actions/workflows/lints.yml/badge.svg)](https://github.com/abacus-wtf/merkle-roots/actions/workflows/lints.yml) ![GitHub](https://img.shields.io/github/license/abacus-wtf/merkle-roots) ![GitHub package.json version](https://img.shields.io/github/package-json/v/abacus-wtf/merkle-roots) ![Vercel Deployment](https://img.shields.io/github/deployments/abacus-wtf/merkle-roots/production?label=vercel)
+# Merkle Root Whitelist • [![tests](https://github.com/Abacus-wtf/merkle-roots/actions/workflows/tests.yml/badge.svg)](https://github.com/Abacus-wtf/merkle-roots/actions/workflows/tests.yml) [![lints](https://github.com/Abacus-wtf/merkle-roots/actions/workflows/lints.yml/badge.svg)](https://github.com/Abacus-wtf/merkle-roots/actions/workflows/lints.yml) ![GitHub](https://img.shields.io/github/license/Abacus-wtf/merkle-roots) ![GitHub package.json version](https://img.shields.io/github/package-json/v/Abacus-wtf/merkle-roots) ![Vercel Deployment](https://img.shields.io/github/deployments/Abacus-wtf/merkle-roots/production?label=vercel)
 
-**Minimalist**, **Compressed** Merkle Root for Abacus [hidden-scrolls](https://github.com/abacus-wtf/hidden-scrolls) whitelisted mint.
+**Minimalist**, **Compressed** Merkle Root for Abacus [hidden-scrolls](https://github.com/Abacus-wtf/hidden-scrolls) whitelisted mint.
 
 ## Developing
 
 Clone the repository
 
 ```bash
-git clone git@github.com:abacus-wtf/merkle-roots.git
+git clone git@github.com:Abacus-wtf/merkle-roots.git
 cd merkle-roots
 ```
 

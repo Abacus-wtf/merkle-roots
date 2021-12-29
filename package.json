@@ -15,7 +15,9 @@
     "build": "next build",
     "start": "next start",
     "type-check": "tsc --noEmit",
-    "format": "prettier --write src",
+    "format": "prettier --write .",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
     "up-latest": "yarn upgrade-interactive --latest",
     "push-release": "git push --follow-tags origin main"
   },
@@ -25,8 +27,13 @@
     "web3": "^1.6.1"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.8.1",
+    "@typescript-eslint/parser": "^5.8.1",
+    "eslint": "^8.5.0",
+    "eslint-plugin-import": "^2.25.3",
     "prettier": "^2.5.1",
     "standard-version": "^9.3.2",
-    "typescript": "^4.5.4"
+    "typescript": "^4.5.4",
+    "typescript-eslint": "^0.0.1-alpha.0"
   }
 }
