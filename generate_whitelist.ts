@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable prefer-const */
 const fs = require("fs");
 require('dotenv').config();
 
@@ -22,13 +23,15 @@ const abacus_contracts = [
 let whitelist = [];
 
 // ** Iterate abacus contracts and generate whitelist ** //
-for (const i in abacus_contracts) {
-  const fetched_txs = getTransactions(web3, abacus_contracts[i], 12762888, 13901588);
-  console.log("txs:", fetched_txs);
+for (let i in abacus_contracts) {
+  for (let block = 12762888; block <= 13901588; block+=10000) {
+    let fetched_txs = getTransactions(web3, abacus_contracts[i], block, block+10000);
+    console.log("txs:", fetched_txs);
 
-  // ** map transactions to their "from address" ** //
-  const addresses = fetched_txs.map((tx) => tx.from);
-  whitelist = [...whitelist, ...addresses];
+    // ** map transactions to their "from address" ** //
+    let addresses = fetched_txs.map((tx) => tx.from);
+    whitelist = [...whitelist, ...addresses];
+  }
 
 
   // const filtered_addresses = web3.eth.filter({

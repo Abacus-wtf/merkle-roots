@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-var-requires */
-// const Web3 = require('web3');
-// const web3 = new Web3();
+/* eslint-disable prefer-const */
 
 const getTransactionsByAccount = (web3, myaccount, startBlockNumber, endBlockNumber) => {
   if (endBlockNumber == null) {
@@ -14,16 +13,16 @@ const getTransactionsByAccount = (web3, myaccount, startBlockNumber, endBlockNum
   }
   console.log("Searching for transactions to/from account \"" + myaccount + "\" within blocks "  + startBlockNumber + " and " + endBlockNumber);
 
-  const all_txs = [];
+  let all_txs = [];
   for (let i = startBlockNumber; i <= endBlockNumber; i++) {
-    if (i % 1000 == 0) {
+    if (i % 10000 == 0) {
       console.log("Searching block " + i);
     }
-    const block = web3.eth.getBlock(i, true);
+    let block = web3.eth.getBlock(i, true);
     if (block != null && block.transactions != null) {
       block.transactions.forEach( function(e) {
         if (myaccount == "*" || myaccount == e.from || myaccount == e.to) {
-          const tx = {
+          let tx = {
             "hash": e.hash,
             "nonce": e.nonce,
             "blockHash": e.blockHash,
